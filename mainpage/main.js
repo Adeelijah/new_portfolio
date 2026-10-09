@@ -4,6 +4,7 @@ let paused = reduced.matches;
 function setMotion(value) {
   paused = value;
   document.body.classList.toggle('motion-paused', paused);
+  if (paused) document.querySelectorAll('.tilt').forEach(card => { card.style.transform = ''; });
   toggle.textContent = paused ? 'Enable motion' : 'Pause motion';
   toggle.setAttribute('aria-pressed', String(paused));
 }

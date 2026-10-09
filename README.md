@@ -17,3 +17,7 @@ Projects: Richlogistics, Wemisville Driving School, and Ifeoluwa Odejinmi. Email
 ## Motion and accessibility
 
 Motion can be paused with the persistent button. System reduced-motion preferences are respected. Content remains visible without JavaScript; navigation and project links are standard accessible anchors.
+
+## Toolbox logos
+
+The continuous carousel uses locally embedded Simple Icons SVGs (v13.0.0, CC0), sourced from https://github.com/simple-icons/simple-icons/tree/13.0.0/icons. The Framer mark represents Framer Motion. Technology marks belong to their respective owners. The loop's duplicate list is hidden from assistive technology; hover/focus and the global motion button pause it. With system reduced motion it becomes a manually scrollable single list.

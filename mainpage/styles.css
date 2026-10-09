@@ -21,3 +21,22 @@ nav a{transition:color .22s,background .22s,border-color .22s}nav a:hover{color:
 @media(max-width:600px){header{height:80px}.hero{padding-top:30px;padding-bottom:35px}.hero-title{min-height:350px;margin-top:32px;margin-bottom:26px}.sculpture{right:calc(50% - 120px);top:8px}.hero h1{font-size:clamp(52px,12.8vw,77px);letter-spacing:-.065em}.hero-bottom p{font-size:15px}.section{padding-top:64px;padding-bottom:64px}.project-grid{gap:12px}.project-grid .project:nth-child(2){padding-top:0}.project-visual,.project-grid .project-visual{height:310px}.project-info h3{font-size:24px}.project-info{padding-bottom:30px}.project-info p{font-size:13px}.about-grid{grid-template-columns:1fr}.about h2{font-size:43px}.about-copy .lead{font-size:20px}.contact h2{font-size:12vw}.services{padding-bottom:70px}.contact-bottom a{align-self:flex-start}.contact .section-top{margin-bottom:25px}footer{padding-bottom:70px}}
 
 .about{color:var(--ink)}.about-copy .lead{color:var(--ink)}.motion-toggle,.location,.eyebrow,.preview-note,.tags span,.resume-note,footer>span,footer>div{font-size:11px}.ticker>div{animation:none;width:auto;text-align:center}.ticker>div{white-space:nowrap;overflow:hidden}.creator-preview em{color:#87502c}@media(max-width:600px){.hero .eyebrow{font-size:10px}.small{font-size:11px}.project-info p{font-size:13px}}
+
+/* Continuous logo carousel; the repeated group is hidden from assistive technology. */
+.skills.toolbox{display:block;min-width:0;margin-top:58px;padding-top:34px;overflow:hidden}
+.toolbox h3{font-size:20px;letter-spacing:-.025em;margin:0 0 28px;color:var(--ink)}
+.skills.toolbox .toolbox-viewport{display:block;width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent);padding:14px 0 22px}
+.toolbox-track{display:flex;width:max-content;animation:toolbox-scroll 48s linear infinite;will-change:transform}
+.toolbox-group{list-style:none;display:flex;align-items:center;gap:24px;margin:0;padding:0 24px 0 0;flex-shrink:0}
+.tool-item{width:132px;flex:0 0 132px;display:flex;flex-direction:column;align-items:center;gap:15px;padding:14px 6px}
+.skills.toolbox .tool-logo{display:grid;place-items:center;width:48px;height:48px;color:#b2bdaa;margin:0;transition:color .25s,transform .25s}
+.tool-logo svg{display:block;width:100%;height:100%;fill:currentColor}
+.skills.toolbox .tool-name{font-family:'DM Sans',sans-serif;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;color:#c7d0bc;white-space:nowrap;margin:0}
+.tool-item:hover .tool-logo{color:var(--accent);transform:translateY(-4px)}
+.toolbox-viewport:hover .toolbox-track,.toolbox-viewport:focus-within .toolbox-track{animation-play-state:paused}
+.toolbox-viewport:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:6px}
+.toolbox-help{font-size:11px;line-height:1.6;color:#adb8a0;margin:18px 0 0}
+@keyframes toolbox-scroll{to{transform:translateX(-50%)}}
+.motion-paused .toolbox-track{will-change:auto}
+@media(max-width:600px){.skills.toolbox{margin-top:40px}.tool-item{width:108px;flex-basis:108px}.toolbox-group{gap:18px;padding-right:18px}.skills.toolbox .tool-logo{width:40px;height:40px}.toolbox-track{animation-duration:42s}.toolbox-help{max-width:32ch}}
+@media(prefers-reduced-motion:reduce){.toolbox-track{animation:none;will-change:auto}.toolbox-group[aria-hidden="true"]{display:none}}

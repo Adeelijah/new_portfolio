@@ -1,37 +1,32 @@
-(function () {
-    var CharacterPos = 0;
-    var MsgBuffer = "";
-    var TypeDelay = 150;
-    var NxtMsgDelay = 5000;
-    var MsgIndex = 0;
-    var delay;
-    var MsgArray = ["Hi there! I'm Elijah, a web developer"];
-
-    function StartTyping() {
-        var id = document.getElementById("typing-text");
-        if (CharacterPos != MsgArray[MsgIndex].length) {
-            MsgBuffer = MsgBuffer + MsgArray[MsgIndex].charAt(CharacterPos);
-            id.value = MsgBuffer + "_";
-            delay = TypeDelay;
-            id.scrollTop = id.scrollHeight;
-        } else {
-            delay = NxtMsgDelay;
-            MsgBuffer = "";
-            CharacterPos = -1;
-            if (MsgIndex != MsgArray.length - 1) {
-                MsgIndex++;
-            } else {
-                MsgIndex = 0;
-            }
-        }
-        CharacterPos++;
-        setTimeout(StartTyping, delay);
-    }
-    StartTyping();
-})();
-
-const hamburger = document.querySelector('.hamburger')
-
-hamburger.addEventListener('click', function () {
-    this.classList.toggle('is-active');
-});
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+const toggle = document.querySelector('.motion-toggle');
+let paused = reduced.matches;
+function setMotion(value) {
+  paused = value;
+  document.body.classList.toggle('motion-paused', paused);
+  toggle.textContent = paused ? 'Enable motion' : 'Pause motion';
+  toggle.setAttribute('aria-pressed', String(paused));
+}
+setMotion(paused);
+toggle.addEventListener('click', () => setMotion(!paused));
+reduced.addEventListener('change', event => setMotion(event.matches));
+if ('IntersectionObserver' in window && !reduced.matches) {
+  document.body.classList.add('js-motion');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+}
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.tilt').forEach(card => {
+    card.addEventListener('pointermove', event => {
+      if (paused) return;
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(1400px) rotateX(${-y * 4}deg) rotateY(${x * 5}deg)`;
+    });
+    card.addEventListener('pointerleave', () => {card.style.transform = '';});
+  });
+}
+document.getElementById('year').textContent = String(new Date().getFullYear());

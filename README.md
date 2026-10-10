@@ -1,6 +1,6 @@
 # Elijah — Web Developer Portfolio
 
-A responsive, single-page portfolio with a CSS 3D kinetic sculpture, project tilt interactions, scroll reveals, and reduced-motion support. No build step or runtime dependencies.
+A responsive, single-page portfolio with a restrained hero featuring a real project, project tilt interactions, subtle scroll reveals, and reduced-motion support. No build step or runtime dependencies.
 
 ## Run locally
 

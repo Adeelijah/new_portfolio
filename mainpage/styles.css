@@ -116,7 +116,9 @@ footer.refined-footer{display:grid;grid-template-columns:1fr auto auto;gap:35px;
 @media(max-width:600px){.toolbox-section{padding-top:10px;padding-bottom:25px}.toolbox-section .skills.toolbox{padding-top:25px}.hero.refined-hero{padding-bottom:25px}.toolbox-section h2{font-size:21px}.contact-invitation{grid-template-columns:115px minmax(0,1fr);gap:10px}.contact-invitation h2{font-size:clamp(23px,6vw,30px)}.refined-footer .footer-links{gap:12px}.about .service-heading{font-size:27px}}
 @media(prefers-reduced-motion:reduce){.guide-arm,.back-top svg{animation:none}}
 
-/* Supplied character illustration, preserved without edits. */
-.contact-portrait{width:100%;max-width:225px;overflow:hidden;border-radius:18px;background:#fff;border:1px solid var(--line)}.contact-portrait img{display:block;width:100%;height:auto}.contact-invitation{grid-template-columns:225px minmax(0,1fr);gap:45px}
-@media(max-width:900px){.contact-invitation{grid-template-columns:175px minmax(0,1fr);gap:30px}.contact-portrait{border-radius:14px}}
-@media(max-width:600px){.contact-invitation{grid-template-columns:112px minmax(0,1fr);gap:18px}.contact-portrait{border-radius:12px}.contact-invitation h2{font-size:clamp(23px,6vw,30px)}}
+
+/* Restored illustrated character with layered facial and clothing detail. */
+.contact-invitation{grid-template-columns:250px minmax(0,1fr);gap:45px}.contact-guide{max-width:250px}.guide-man{overflow:visible}.guide-arm{animation:guide-point-clear 3.4s ease-in-out infinite}.guide-eye-blink{animation:guide-blink 6.8s ease-in-out infinite}.guide-pupils{transition:transform .12s ease-out}
+@media(max-width:900px){.contact-invitation{grid-template-columns:205px 1fr;gap:30px}}
+@media(max-width:600px){.contact-invitation{grid-template-columns:120px minmax(0,1fr);gap:14px}.contact-invitation h2{font-size:clamp(23px,6vw,30px)}}
+@media(prefers-reduced-motion:reduce){.guide-arm,.guide-eye-blink{animation:none}}

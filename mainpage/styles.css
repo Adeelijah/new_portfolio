@@ -95,3 +95,12 @@ footer.refined-footer{display:grid;grid-template-columns:1fr auto auto;gap:35px;
 :root,:root[data-theme="dark"]{color-scheme:dark;--paper:#111e30;--ink:#edf2f7;--muted:#a6b6c8;--accent:#a6c3de;--accent-ink:#14253a;--line:#34485e;--surface:#182a40;--surface-deep:#142337;--surface-art:#20354c;--secondary:#b7c8db;--hover:#bfd5e8;--shadow:#08132366}
 :root[data-theme="light"]{color-scheme:light;--paper:#faf7f2;--ink:#243346;--muted:#5c6978;--accent:#34567b;--accent-ink:#ffffff;--line:#d2d7dd;--surface:#f2eee8;--surface-deep:#eeece7;--surface-art:#e4e8ec;--secondary:#536b83;--hover:#254466;--shadow:#2339521c}
 .hero-feature{border-color:var(--line)}.guide-trousers{fill:#536b83}.guide-shoes{fill:#253346}.primary-action,.secondary-action{gap:0}.feature-caption{padding-right:2px}.minimal-header .nav-contact{gap:0}.contact-invitation h2 a{gap:0}.project-info{padding-right:0}
+
+/* Subtle character expression and bounded pointer tracking. */
+.guide-head{transform-origin:86px 84px;transform:translate(var(--guide-head-x,0px),var(--guide-head-y,0px)) rotate(var(--guide-head-angle,0deg));transition:transform .25s var(--ease)}
+.guide-pupils{transform:translate(var(--guide-eye-x,0px),var(--guide-eye-y,0px));transition:transform .18s ease-out}
+.guide-eye-blink{transform-box:fill-box;transform-origin:center;animation:guide-blink 6.8s ease-in-out infinite}
+.guide-arm{animation:guide-point-refined 4.6s ease-in-out infinite}
+@keyframes guide-point-refined{0%,100%{transform:rotate(0deg)}40%,55%{transform:rotate(-2.5deg)}}
+@keyframes guide-blink{0%,91%,96%,100%{transform:scaleY(1)}93.5%{transform:scaleY(.08)}}
+@media(prefers-reduced-motion:reduce){.guide-head,.guide-pupils{transform:none;transition:none}.guide-arm,.guide-eye-blink{animation:none}}

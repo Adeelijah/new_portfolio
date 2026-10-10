@@ -1,15 +1,11 @@
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-const toggle = document.querySelector('.motion-toggle');
 let paused = reduced.matches;
 function setMotion(value) {
   paused = value;
   document.body.classList.toggle('motion-paused', paused);
   if (paused) document.querySelectorAll('.tilt').forEach(card => { card.style.transform = ''; });
-  toggle.textContent = paused ? 'Enable motion' : 'Pause motion';
-  toggle.setAttribute('aria-pressed', String(paused));
 }
 setMotion(paused);
-toggle.addEventListener('click', () => setMotion(!paused));
 reduced.addEventListener('change', event => setMotion(event.matches));
 if ('IntersectionObserver' in window && !reduced.matches) {
   document.body.classList.add('js-motion');
@@ -71,7 +67,6 @@ if (contactGuide) {
   }, {passive: true});
   document.documentElement.addEventListener('pointerleave', resetGuide);
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetGuide(); });
-  toggle.addEventListener('click', () => { if (paused) resetGuide(); });
   reduced.addEventListener('change', resetGuide);
   finePointer.addEventListener('change', resetGuide);
 }

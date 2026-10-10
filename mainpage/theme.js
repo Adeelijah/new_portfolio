@@ -7,7 +7,7 @@
   function apply(theme) {
     root.dataset.theme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = theme === 'dark' ? '#191c19' : '#f5f3ed';
+    if (meta) meta.content = theme === 'dark' ? '#111e30' : '#faf7f2';
     const button = document.querySelector('.theme-toggle');
     if (button) {
       button.setAttribute('aria-checked', String(theme === 'dark'));
